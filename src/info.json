@@ -2,7 +2,7 @@
     "id": "bddjr.jsonobject",
     "author": "bddjr#110",
     "version": "0.0.1",
-    "icon": "assets/icon.png",
-    "inset_icon": "assets/smile.svg",
+    "icon": "assets/cover.svg",
+    "inset_icon": "assets/inset.svg",
     "api": 1
 }

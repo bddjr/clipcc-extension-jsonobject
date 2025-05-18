@@ -3,6 +3,11 @@ import { type } from "clipcc-extension"
 declare global {
     var ClipCCExtension: typeof import("clipcc-extension")
 
+    interface Window {
+        // 仅社区版有这个函数，预览站没有。
+        clipAlert?: (title: string, message: string) => Promise<boolean>
+    }
+
     interface MyCategory {
         id: string
         color?: string
@@ -34,7 +39,11 @@ declare global {
     }
 
     interface BlockFuncUtil {
-        currentBlock: { [key: string]: any }
+        currentBlock: {
+            opcode: string // bddjr.makeccx.hello.hello
+            id: string // Yt-f|U+kQEf%8t3uy2G;
+            [key: string]: any
+        }
         sequencer: {
             activeThread: any // null
             runtime: { [key: string]: any }
@@ -47,12 +56,21 @@ declare global {
             blockGlowInFrame: string
             topBlock: string
             runtime: { [key: string]: any }
+            target: {
+                sprite: {
+                    name: string
+                    [key: string]: any
+                }
+                isOriginal: boolean
+                isStage: boolean
+                [key: string]: any
+            }
             [key: string]: any
         }
         _nowObj: {
             now(): number
         }
-        currentBlockId: string
+        currentBlockId: string // Yt-f|U+kQEf%8t3uy2G;
         nowObj: {
             now(): number
         }

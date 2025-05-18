@@ -2,15 +2,22 @@ import { type } from 'clipcc-extension'
 import { appendID } from './utils/append-id'
 import { id as ccxID } from "./info.json"
 
-import { category_hello } from './categories/hello/hello'
-import { category_boolean } from './categories/boolean/boolean'
+import { category_help } from './categories/help/help'
+import { category_type } from './categories/type/type'
+// import { category_tempvar } from './categories/tempvar/tempvar'
+import { category_json } from './categories/json/json'
+import { category_array } from './categories/array/array'
+import { logBlockError } from './utils/log-block-error'
 
 
-const globalColor: string = '#66CCFF'
+const globalColor: string = '#0099FF'
 
 const input: MyCategory[] = [
-    category_hello,
-    category_boolean,
+    category_help,
+    category_type,
+    // category_tempvar,
+    category_json,
+    category_array,
 ]
 
 
@@ -31,7 +38,14 @@ export const categories: {
             messageId: blockID,
             categoryId: cid,
             type: myBlock.type,
-            function: myBlock.function,
+            function(args: any, util: BlockFuncUtil) {
+                try {
+                    return myBlock.function(args, util)
+                } catch (e) {
+                    logBlockError(e, util)
+                }
+                return ''
+            },
         }
         if (typeof myBlock.option === 'object') {
             out.option = myBlock.option
