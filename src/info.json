@@ -1,8 +1,8 @@
 {
     "id": "bddjr.jsonobject",
-    "author": "bddjr#110",
+    "author": "bddjr #110",
     "version": "0.0.1",
-    "icon": "assets/cover.svg",
-    "inset_icon": "assets/inset.svg",
+    "icon": "assets/cover.tinypng.webp",
+    "inset_icon": "assets/icon.output.svg",
     "api": 1
 }

@@ -46,6 +46,32 @@ const blocks: MyBlock<BlockParams>[] = [
         }
     }),
     defineBlock({
+        id: 'stringify3',
+        type: type.BlockType.REPORTER,
+        param: {
+            a: {
+                type: undefined,
+                defaultValue: undefined,
+            },
+            replacer: {
+                type: undefined,
+                defaultValue: undefined,
+            },
+            space: {
+                type: type.ParameterType.STRING,
+                defaultValue: '    ',
+            },
+        },
+        function(args, util): any {
+            try {
+                return JSON.stringify(args.a, args.replacer, args.space)
+            } catch (e) {
+                logBlockError(e, util)
+            }
+            return undefined
+        }
+    }),
+    defineBlock({
         id: 'getFromKey',
         type: type.BlockType.REPORTER,
         param: {

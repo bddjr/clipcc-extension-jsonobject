@@ -59,6 +59,7 @@
         "": "JSON",
         "parse": "JSON.parse [a]",
         "stringify": "JSON.stringify [a]",
+        "stringify3": "JSON.stringify [a] [replacer] [space]",
         "getFromKey": "Object [json] [key]",
         "setFromKey": "Object [json] [key] [assignmentOperator] [value]",
         "delete": "Object [json] delete [key]",
