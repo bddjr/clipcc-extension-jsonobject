@@ -1,6 +1,6 @@
 {
     "name": "JSON Object",
-    "description": "[object Object]",
+    "description": "搭配临时变量使用更佳",
     "menu_assignment_operators": {
         "assignment": "=",
         "addition_assignment": "+=",
@@ -46,7 +46,8 @@
         "inequality": "[a] != [b]",
         "strict_equality": "[a] === [b]",
         "strict_inequality": "[a] !== [b]",
-        "number_isNaN": "Number isNaN [a]",
+        "object_is": "Object.is [a] [b]",
+        "number_isNaN": "Number.isNaN [a]",
         "isArray": "[a] is array",
         "conditional_operator": "[b] ? [t] : [f]"
     },
@@ -59,14 +60,18 @@
         "": "JSON",
         "parse": "JSON.parse [a]",
         "stringify": "JSON.stringify [a]",
-        "stringify3": "JSON.stringify [a] [replacer] [space]",
+        "stringify3": "JSON.stringify [a] [replacer] [space]"
+    },
+    "object": {
+        "": "Object",
+        "structuredClone1": "structuredClone [obj]",
+        "structuredClone2": "structuredClone [obj] [options]",
         "getFromKey": "Object [json] [key]",
         "setFromKey": "Object [json] [key] [assignmentOperator] [value]",
         "delete": "Object [json] delete [key]",
         "assign": "Object [json] assign [source]",
         "entries": "Object [json] entries",
         "freeze": "Object [json] freeze",
-        "freeze_command": "Object [json] freeze",
         "fromEntries": "Object fromEntries [entries]",
         "getOwnPropertyNames": "Object [json] getOwnPropertyNames",
         "hasOwn": "Object [json] hasOwn [key]",
@@ -76,9 +81,7 @@
         "isSealed": "Object [json] isSealed",
         "keys": "Object [json] keys",
         "preventExtensions": "Object [json] preventExtensions",
-        "preventExtensions_command": "Object [json] preventExtensions",
         "seal": "Object [json] seal",
-        "seal_command": "Object [json] seal",
         "values": "Object [json] values"
     },
     "array": {
@@ -102,13 +105,10 @@
         "join": "Array [array] join [a]",
         "lastIndexOf": "Array [a] lastIndexOf [searchElement] fromIndex [fromIndex]",
         "pop": "Array [array] pop",
-        "pop_command": "Array [array] pop",
         "push": "Array [array] push [a]",
-        "push_command": "Array [array] push [a]",
         "reverse": "Array [array] reverse",
         "toReversed": "Array [array] toReversed",
         "shift": "Array [array] shift",
-        "shift_command": "Array [array] shift",
         "slice1": "Array [array] slice [a]",
         "slice2": "Array [array] slice [a] [b]",
         "sort": "Array [array] sort [upOrDown]",
@@ -117,12 +117,9 @@
         "toSorted_by": "Array [array] toSorted [upOrDown] by [key]",
         "splice0": "Array [array] splice [start] [deleteCount]",
         "splice1": "Array [array] splice [start] [deleteCount] [item]",
-        "splice0_command": "Array [array] splice [start] [deleteCount]",
-        "splice1_command": "Array [array] splice [start] [deleteCount] [item]",
         "toSpliced0": "Array [array] toSpliced [start] [deleteCount]",
         "toSpliced1": "Array [array] toSpliced [start] [deleteCount] [item]",
         "unshift": "Array [array] unshift [a]",
-        "unshift_command": "Array [array] unshift [a]",
         "with": "Array [array] with [index] [value]",
         "to_set_then_to_array": "Array.from ( new Set [array] )"
     }

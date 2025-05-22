@@ -418,24 +418,7 @@ const blocks: MyBlock<BlockParams>[] = [
     defineBlock({
         id: 'pop',
         type: type.BlockType.REPORTER,
-        param: {
-            array: {
-                type: undefined,
-                defaultValue: undefined,
-            },
-        },
-        function(args, util): any {
-            try {
-                return Array.prototype.pop.call(args.array)
-            } catch (e) {
-                logBlockError(e, util)
-            }
-            return undefined
-        }
-    }),
-    defineBlock({
-        id: 'pop_command',
-        type: type.BlockType.COMMAND,
+        addCommandAfterThis: true,
         param: {
             array: {
                 type: undefined,
@@ -454,28 +437,7 @@ const blocks: MyBlock<BlockParams>[] = [
     defineBlock({
         id: 'push',
         type: type.BlockType.REPORTER,
-        param: {
-            array: {
-                type: undefined,
-                defaultValue: undefined,
-            },
-            a: {
-                type: type.ParameterType.STRING,
-                defaultValue: 'cows'
-            },
-        },
-        function(args, util): number {
-            try {
-                return Array.prototype.push.call(args.array, args.a)
-            } catch (e) {
-                logBlockError(e, util)
-            }
-            return NaN
-        }
-    }),
-    defineBlock({
-        id: 'push_command',
-        type: type.BlockType.COMMAND,
+        addCommandAfterThis: true,
         param: {
             array: {
                 type: undefined,
@@ -534,6 +496,7 @@ const blocks: MyBlock<BlockParams>[] = [
     defineBlock({
         id: 'shift',
         type: type.BlockType.REPORTER,
+        addCommandAfterThis: true,
         param: {
             array: {
                 type: undefined,
@@ -547,23 +510,6 @@ const blocks: MyBlock<BlockParams>[] = [
                 logBlockError(e, util)
             }
             return undefined
-        }
-    }),
-    defineBlock({
-        id: 'shift_command',
-        type: type.BlockType.COMMAND,
-        param: {
-            array: {
-                type: undefined,
-                defaultValue: undefined,
-            },
-        },
-        function(args, util): void {
-            try {
-                Array.prototype.shift.call(args.array)
-            } catch (e) {
-                logBlockError(e, util)
-            }
         }
     }),
     defineBlock({
@@ -717,6 +663,7 @@ const blocks: MyBlock<BlockParams>[] = [
     defineBlock({
         id: 'splice0',
         type: type.BlockType.REPORTER,
+        addCommandAfterThis: true,
         param: {
             array: {
                 type: undefined,
@@ -743,62 +690,7 @@ const blocks: MyBlock<BlockParams>[] = [
     defineBlock({
         id: 'splice1',
         type: type.BlockType.REPORTER,
-        param: {
-            array: {
-                type: undefined,
-                defaultValue: undefined,
-            },
-            start: {
-                type: type.ParameterType.NUMBER,
-                defaultValue: '4'
-            },
-            deleteCount: {
-                type: type.ParameterType.NUMBER,
-                defaultValue: '1'
-            },
-            item: {
-                type: type.ParameterType.STRING,
-                defaultValue: 'item'
-            }
-        },
-        function(args, util): any[] {
-            try {
-                return Array.prototype.splice.call(args.array, args.start, args.deleteCount, args.item)
-            } catch (e) {
-                logBlockError(e, util)
-            }
-            return undefined
-        }
-    }),
-    defineBlock({
-        id: 'splice0_command',
-        type: type.BlockType.COMMAND,
-        param: {
-            array: {
-                type: undefined,
-                defaultValue: undefined,
-            },
-            start: {
-                type: type.ParameterType.NUMBER,
-                defaultValue: '4'
-            },
-            deleteCount: {
-                type: type.ParameterType.NUMBER,
-                defaultValue: '1'
-            },
-        },
-        function(args, util): any[] {
-            try {
-                return Array.prototype.splice.call(args.array, args.start, args.deleteCount)
-            } catch (e) {
-                logBlockError(e, util)
-            }
-            return undefined
-        }
-    }),
-    defineBlock({
-        id: 'splice1_command',
-        type: type.BlockType.COMMAND,
+        addCommandAfterThis: true,
         param: {
             array: {
                 type: undefined,
@@ -885,28 +777,7 @@ const blocks: MyBlock<BlockParams>[] = [
     defineBlock({
         id: 'unshift',
         type: type.BlockType.REPORTER,
-        param: {
-            array: {
-                type: undefined,
-                defaultValue: undefined,
-            },
-            a: {
-                type: type.ParameterType.STRING,
-                defaultValue: 'cows'
-            },
-        },
-        function(args, util): number {
-            try {
-                return Array.prototype.unshift.call(args.array, args.a)
-            } catch (e) {
-                logBlockError(e, util)
-            }
-            return NaN
-        }
-    }),
-    defineBlock({
-        id: 'unshift_command',
-        type: type.BlockType.COMMAND,
+        addCommandAfterThis: true,
         param: {
             array: {
                 type: undefined,

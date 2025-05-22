@@ -1,6 +1,7 @@
 import { type } from "clipcc-extension"
 import defineBlock from "../../utils/define-block"
 import { toScratchBoolean } from "../../utils/to-scratch-boolean"
+import { logBlockError } from "../../utils/log-block-error"
 
 const categoryID: string = 'type'
 const color: string = '' // Use global color
@@ -167,6 +168,28 @@ const blocks: MyBlock<BlockParams>[] = [
         },
         function(args, util): boolean {
             return args.a !== args.b
+        }
+    }),
+    defineBlock({
+        id: 'object_is',
+        type: type.BlockType.BOOLEAN,
+        param: {
+            a: {
+                type: type.ParameterType.STRING,
+                defaultValue: '#',
+            },
+            b: {
+                type: type.ParameterType.STRING,
+                defaultValue: '#',
+            },
+        },
+        function(args, util): boolean {
+            try {
+                return Object.is(args.a, args.b)
+            } catch (e) {
+                logBlockError(e, util)
+            }
+            return false
         }
     }),
     defineBlock({

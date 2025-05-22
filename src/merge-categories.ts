@@ -8,6 +8,7 @@ import { category_type } from './categories/type/type'
 import { category_json } from './categories/json/json'
 import { category_array } from './categories/array/array'
 import { logBlockError } from './utils/log-block-error'
+import { category_object } from './categories/object/object'
 
 
 const globalColor: string = '#0099FF'
@@ -17,6 +18,7 @@ const input: MyCategory[] = [
     category_type,
     // category_tempvar,
     category_json,
+    category_object,
     category_array,
 ]
 
@@ -31,7 +33,7 @@ export const categories: {
 
     const cid = appendID(ccxID, c.id)
 
-    let blocks = c.blocks.filter((b) => (typeof b === 'object')).map(myBlock => {
+    let blocks = c.blocks.filter((b) => (typeof b === 'object')).flatMap((myBlock) => {
         const blockID = appendID(cid, myBlock.id)
         const out: type.BlockPrototype = {
             opcode: blockID,
@@ -84,6 +86,12 @@ export const categories: {
                 }
                 out.param[key] = outParam
             }
+        }
+        if (myBlock.addCommandAfterThis && myBlock.type !== type.BlockType.COMMAND) {
+            const cmdBlock = Object.assign({}, out)
+            cmdBlock.type = type.BlockType.COMMAND
+            cmdBlock.opcode += '_command'
+            return [out, cmdBlock]
         }
         return out
     })
