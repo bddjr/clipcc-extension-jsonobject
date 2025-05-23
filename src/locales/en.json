@@ -87,8 +87,10 @@
     "array": {
         "": "Array",
         "new_array": "new Array [length]",
-        "length": "Array [a] length",
         "from": "Array from [a]",
+        "split1": "[a] split [b]",
+        "split2": "[a] split [b] [c]",
+        "length": "Array [a] length",
         "at": "Array [a] at [index]",
         "concat2": "Array concat [a] [b]",
         "concat3": "Array concat [a] [b] [c]",

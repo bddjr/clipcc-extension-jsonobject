@@ -47,6 +47,54 @@ const blocks: MyBlock<BlockParams>[] = [
         }
     }),
     defineBlock({
+        id: 'split1',
+        type: type.BlockType.REPORTER,
+        param: {
+            a: {
+                type: type.ParameterType.STRING,
+                defaultValue: '1,2,3'
+            },
+            b: {
+                type: type.ParameterType.STRING,
+                defaultValue: ','
+            }
+        },
+        function(args, util): string[] {
+            try {
+                return String(args.a).split(args.b)
+            } catch (e) {
+                logBlockError(e, util)
+            }
+            return undefined
+        }
+    }),
+    defineBlock({
+        id: 'split2',
+        type: type.BlockType.REPORTER,
+        param: {
+            a: {
+                type: type.ParameterType.STRING,
+                defaultValue: '1,2,3'
+            },
+            b: {
+                type: type.ParameterType.STRING,
+                defaultValue: ','
+            },
+            c: {
+                type: type.ParameterType.NUMBER,
+                defaultValue: '2'
+            },
+        },
+        function(args, util): string[] {
+            try {
+                return String(args.a).split(args.b, args.c)
+            } catch (e) {
+                logBlockError(e, util)
+            }
+            return undefined
+        }
+    }),
+    defineBlock({
         id: 'length',
         type: type.BlockType.REPORTER,
         param: {
